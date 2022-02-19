@@ -15,7 +15,7 @@ public class HomePage extends TestBase {
     }
 
     @FindBy(xpath = "//span[@class='title']")
-    WebElement homePageTittle;
+    public WebElement homePageTittle;
 
     @FindBy(xpath = "//select[@data-test='product_sort_container']")
     WebElement dataListSort;
@@ -79,4 +79,5 @@ public class HomePage extends TestBase {
         itemNameList.get(0).click();
         return new ProductPage();
     }
+
 }

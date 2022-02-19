@@ -37,12 +37,25 @@ public class ProductPageTests extends TestBase {
         productPage.clickAddToCart();
         Assert.assertEquals(productPage.getCartItemsCount(),"1");
     }
+    @Test
+    public void verifyRemoveFromCartButton()
+    {
+        productPage.clickAddToCart();
+        productPage.clickOnRemoveButton();
+        Assert.assertTrue(productPage.cartBudgeIsExist());
+    }
+
 
     @Test
     public void verifyShoppingCartButton() throws IOException {
         productPage.clickAddToCart();
         shoppingCartPage = productPage.clickOnShoppingCart();
         Assert.assertEquals(shoppingCartPage.getPageTitle(),"YOUR CART");
+    }
+    @Test
+    public void verifyBackToProductButton() throws IOException {
+       homePage= productPage.clickOnBackToProductsButton();
+       Assert.assertTrue(productPage.cartBudgeIsExist());
     }
 
     @AfterMethod

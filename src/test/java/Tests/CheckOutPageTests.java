@@ -4,6 +4,7 @@ import Base.TestBase;
 import Pages.*;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -38,6 +39,11 @@ public class CheckOutPageTests extends TestBase {
         checkOutPage.fillPurchaseData();
         checkoutOverviewPage = checkOutPage.clickOnContinueButton();
         Assert.assertEquals(checkoutOverviewPage.getPageTitle(),"CHECKOUT: OVERVIEW");
+    }
+    @AfterMethod
+    public void tearDown()
+    {
+        driver.quit();
     }
 
 }

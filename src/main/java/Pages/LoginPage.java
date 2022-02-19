@@ -23,7 +23,7 @@ public class LoginPage extends TestBase {
     WebElement loginButton;
 
     @FindBy(xpath = "//h3[@data-test='error']")
-    WebElement wrongUserNameMessage;
+    WebElement loginErrorMessage;
 
 
     public HomePage performLogin() throws IOException {
@@ -37,13 +37,20 @@ public class LoginPage extends TestBase {
         userName.sendKeys(prop.getProperty("username2"));
         password.sendKeys(prop.getProperty("password"));
         loginButton.click();
-        return wrongUserNameMessage.getText();
+        return loginErrorMessage.getText();
     }
 
     public String loginWithoutPassword()
     {
         userName.sendKeys(prop.getProperty("username2"));
         loginButton.click();
-        return wrongUserNameMessage.getText();
+        return loginErrorMessage.getText();
+    }
+    public String loginWithoutUsername()
+    {
+        password.sendKeys(prop.getProperty("password"));
+        loginButton.click();
+        return loginErrorMessage.getText();
+
     }
 }

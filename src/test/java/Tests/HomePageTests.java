@@ -3,6 +3,7 @@ package Tests;
 import Base.TestBase;
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.ProductPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,6 +16,7 @@ public class HomePageTests extends TestBase {
 
     LoginPage loginPage;
     HomePage homePage;
+    ProductPage productPage;
     public HomePageTests() throws IOException {super();
     }
 
@@ -33,6 +35,12 @@ public class HomePageTests extends TestBase {
        Assert.assertEquals("$"+homePage.findLowestPrice(),homePage.itemPriceList.get(0).getText());
     }
 
+    @Test
+    public void checkProductRedirectingPage() throws IOException
+    {
+       productPage= homePage.openProductPage();
+       Assert.assertEquals(productPage.itemName.getText(),"Sauce Labs Onesie");
+    }
    @AfterMethod
     public void tearDown()
     {

@@ -45,6 +45,12 @@ public class LoginTest extends TestBase {
        String expectedMessage ="Epic sadface: Password is required";
        Assert.assertEquals(loginPage.loginWithoutPassword(),expectedMessage);
     }
+    @Test
+    public void loginWithNoUsername()
+    {
+        String expectedMessage ="Epic sadface: Username is required";
+        Assert.assertEquals(loginPage.loginWithoutUsername(),expectedMessage);
+    }
 
     @AfterMethod
     public void tearDown(){

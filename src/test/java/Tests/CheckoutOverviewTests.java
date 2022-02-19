@@ -3,6 +3,7 @@ package Tests;
 import Base.TestBase;
 import Pages.*;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -41,5 +42,11 @@ public class CheckoutOverviewTests extends TestBase {
     public void verifyUserPlacedOrderSuccessfully() throws IOException {
         checkoutCompletedPage = checkoutOverviewPage.clickFinishBtn();
         Assert.assertEquals(checkoutCompletedPage.getPageTitle(),"CHECKOUT: COMPLETE!");
+    }
+
+    @AfterMethod
+    public void tearDown()
+    {
+        driver.quit();
     }
 }

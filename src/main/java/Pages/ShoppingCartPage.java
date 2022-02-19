@@ -18,9 +18,16 @@ public class ShoppingCartPage extends TestBase {
     @FindBy(id = "checkout")
     WebElement checkOutButton;
 
+    @FindBy(xpath = "//*[@id=\"item_2_title_link\"]/div")
+    WebElement productName;
+
 
     public String getPageTitle(){
         return yourCartTitle.getText();
+    }
+    public String getProductName()
+    {
+        return productName.getText();
     }
     public CheckOutPage clickOnCheckOutButton() throws IOException {
         checkOutButton.click();
