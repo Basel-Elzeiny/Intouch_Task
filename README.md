@@ -1,4 +1,5 @@
-This is a Framework for Intouch Automation Task
+**This is a Framework for Intouch Automation Task**
+```
 Selenium Framework project using Java , Maven , TestNG and POM for automation task
 Tech Stach:
 Java
